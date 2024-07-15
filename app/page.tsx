@@ -1,4 +1,3 @@
- 
 import { currentUser } from "@clerk/nextjs/server";
 import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
 import Link from "next/link";
@@ -39,26 +38,25 @@ function Logo() {
 async function Buttons() {
   const user = await currentUser();
   return (
-    <div className="max-sm:w-full">
-      {user?(
+    <div
+      className="flex justify-center items-center
+    max-sm:w-full"
+    >
+      {user ? (
         <Link href="/my-notes">
           <button className="bg-maincolor p-[8px] px-6 rounded-md hover:bg-purple-700 text-sm text-white">
             Access to the app
           </button>
         </Link>
-      ):(
-    <div className="flex gap-2 max-sm:flex-col max-sm:w-[60%] max-sm:mt-8">
-      <Link href="/sign-in">
-      <button className="bg-maincolor p-[8px] px-6 rounded-md hover:bg-purple-700 text-sm text-white">
-        SignIn
-      </button>
-      </Link>
-      <Link href="/sign-up"> 
-      <button className="text-maincolor text-sm border border-maincolor hover:bg-maincolor hover:text-white p-[8px] px-6 rounded-md ">
-        SignIn
-      </button>
-        </Link>
-    </div>
+      ) : (
+        <div className="flex gap-2 max-sm:flex-col max-sm:w-[60%] max-sm:mt-8 ">
+          <button className="bg-maincolor p-[8px] px-6 rounded-md hover:bg-purple-700 text-sm text-white">
+            <Link href="/sign-in">SignIn</Link>
+          </button>
+          <button className="text-maincolor text-sm border border-maincolor hover:bg-maincolor hover:text-white p-[8px] px-6 rounded-md ">
+            <Link href="/sign-up">SignUp</Link>
+          </button>
+        </div>
       )}
     </div>
   );

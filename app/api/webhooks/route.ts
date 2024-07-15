@@ -65,7 +65,7 @@ export async function POST(req: Request) {
         console.log("User Created Successfully")
 
     } catch (error) {
-        console.error(error)
+        console.error("this is creat error", error)
     }
   }
   console.log(`Webhook with and ID of ${id} and type of ${eventType}`)
